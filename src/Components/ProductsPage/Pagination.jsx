@@ -4,20 +4,20 @@ import { useContext } from "react";
 import { MainContext } from "../Context/MainContextProvider";
 
 export default function Pagination() {
-  let { page, totalPage, setPage } = useContext(MainContext);
+  let { totalPages, request, setRequest } = useContext(MainContext);
   return (
     <div style={{ margin: "3rem 0 1rem 0" }}>
       <div className={PaginationCSS.pageContainer}>
         <div>
-          {page <= 1 ? (
+          {request.page <= 1 ? (
             <Link
               style={{ pointerEvents: "none" }}
-              to={`/products/page=${page - 1}`}
+              to={`/products/page=${request.page - 1}`}
             >
               <button
-                disabled={page <= 1}
+                disabled={request.page <= 1}
                 onClick={() => {
-                  setPage(page - 1);
+                  setRequest({ ...request, page: request.page - 1 });
                 }}
                 className={PaginationCSS.btn}
               >
@@ -25,11 +25,11 @@ export default function Pagination() {
               </button>
             </Link>
           ) : (
-            <Link to={`/products/page=${page - 1}`}>
+            <Link to={`/products/page=${request.page - 1}`}>
               <button
-                disabled={page <= 1}
+                disabled={request.page <= 1}
                 onClick={() => {
-                  setPage(page - 1);
+                  setRequest({ ...request, page: request.page - 1 });
                 }}
                 className={PaginationCSS.btn}
               >
@@ -38,17 +38,17 @@ export default function Pagination() {
             </Link>
           )}
         </div>
-        <div className={PaginationCSS.currentNumber}>{page}</div>
+        <div className={PaginationCSS.currentNumber}>{request.page}</div>
         <div>
-          {page >= totalPage ? (
+          {request.page >= totalPages ? (
             <Link
               style={{ pointerEvents: "none" }}
-              to={`/products/page=${page + 1}`}
+              to={`/products/page=${request.page + 1}`}
             >
               <button
-                disabled={page >= totalPage}
+                disabled={request.page >= totalPages}
                 onClick={() => {
-                  setPage(page + 1);
+                  setRequest({ ...request, page: request.page + 1 });
                 }}
                 className={PaginationCSS.btn}
               >
@@ -56,11 +56,11 @@ export default function Pagination() {
               </button>
             </Link>
           ) : (
-            <Link to={`/products/page=${page + 1}`}>
+            <Link to={`/products/page=${request.page + 1}`}>
               <button
-                disabled={page >= totalPage}
+                disabled={request.page >= totalPages}
                 onClick={() => {
-                  setPage(page + 1);
+                  setRequest({ ...request, page: request.page + 1 });
                 }}
                 className={PaginationCSS.btn}
               >

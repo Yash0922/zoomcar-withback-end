@@ -9,19 +9,18 @@ import Loading from "../ProductsPage/Loading";
 export default function ProductDetails() {
   let { isLoading, setIsLoading, setPrice } = useContext(MainContext);
   let [singleProduct, setSingleProduct] = useState({});
-  let { page, id } = useParams();
+  let { id } = useParams();
 
   async function getData(url) {
-    console.log(page, id);
     setIsLoading(true);
     let fetchData = await fetch(url);
     let data = await fetchData.json();
-    console.log(data);
+    // console.log(data.car_data);
     setSingleProduct(data);
     let obj = {
       name: data.car_data.name,
       brand: data.car_data.brand,
-      image_url: data.car_data.url,
+      image_url: data.car_data.image_url,
       type: data.car_data.accessories[1],
       transmission: data.car_data.accessories[0],
     };
@@ -31,8 +30,7 @@ export default function ProductDetails() {
   }
 
   useEffect(() => {
-    console.log(`https://api-zoom-car-clone.cyclic.app/cards/${id}`);
-    getData(`https://api-zoom-car-clone.cyclic.app/cards/${id}`);
+    getData(`https://happy-tuna-girdle.cyclic.app//cars/${id}`);
   }, []);
 
   return (

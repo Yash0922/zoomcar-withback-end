@@ -12,7 +12,7 @@ export default function FIndcars() {
   let [locationLS, setLocationLS] = useState("");
   let [toggle, setToggle] = useState(true);
   let [timetoggle, setTimetoggle] = useState(true);
-  let { page } = useContext(MainContext);
+  let { request } = useContext(MainContext);
 
   const styles = {
     gray: {
@@ -31,9 +31,9 @@ export default function FIndcars() {
 
   const [location, setLocation] = useState({});
 
-  let [city, setcity] = useState("Mumbai");
+  let [city, setcity] = useState("Chandigarh");
   let [addr, setaddress] = useState(
-    "226Q+3PM, Diwale Village, Sector 14, CBD Belapur, Navi Mumbai, Maharashtra 400614, India"
+    "351/1, Shivalik Vihar, Zirakpur 140603, India"
   );
 
   const getLocation = () => {
@@ -69,7 +69,9 @@ export default function FIndcars() {
     fetch(API_ENDPOINT)
       .then((response) => response.json())
       .then((data) => {
-        setcity(data.address.city);
+        if (data.address.city != undefined) {
+          setcity(data.address.city);
+        }
         setaddress(data.display_name);
         setLocationLS(city + " . " + addr);
       })
@@ -148,11 +150,7 @@ export default function FIndcars() {
             maxHeight: "1.6em",
           }}
         >
-          {city}
-          <i
-            className="bi bi-dot"
-            style={{ fontSize: "1rem", color: "#10a310" }}
-          ></i>
+          {city + " "}
           {addr}
         </p>
       </div>
@@ -183,7 +181,7 @@ export default function FIndcars() {
         <CurrentDateTime />
       </div>
 
-      <Link to={`/products/page=${page}`} className="find_cars_btn">
+      <Link to={`/products/page=${request.page}`} className="find_cars_btn">
         <button
           style={{
             width: "100%",

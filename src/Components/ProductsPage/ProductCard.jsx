@@ -2,20 +2,30 @@ import { Link } from "react-router-dom";
 import ProductCardCSS from "./ProductCard.module.css";
 
 export default function ProductCard({ productData }) {
+  // let {
+  //   car_data: {
+  //     name,
+  //     url_large,
+  //     location: { text },
+  //     pricing: { payable_amount },
+  //     accessories,
+  //     rating,
+  //   },
+  //   id,
+  // } = productData;
+
   let {
-    car_data: {
-      name,
-      url_large,
-      location: { text },
-      pricing: { payable_amount },
-      accessories,
-      rating,
-    },
-    id,
+    _id,
+    name,
+    image_url,
+    location: { text },
+    pricing: { payable_amount },
+    accessories,
+    rating,
   } = productData;
 
   return (
-    <Link to={`/cars/${id}`}>
+    <Link to={`/cars/${_id}`}>
       <div className={ProductCardCSS.productCard}>
         <div
           className="imageCar"
@@ -25,7 +35,7 @@ export default function ProductCard({ productData }) {
             width: "100%",
           }}
         >
-          <img style={{ height: "250px" }} src={url_large} alt="car" />
+          <img style={{ height: "250px" }} src={image_url} alt="car" />
         </div>
         <div className={ProductCardCSS.productDetailContainer}>
           <div className={ProductCardCSS.ratingsAndOhter}>

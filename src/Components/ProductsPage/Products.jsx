@@ -9,30 +9,19 @@ import Pagination from "./Pagination";
 
 export default function Products() {
   let {
-    sort,
-    filter,
+    request,
     isLoading,
     setIsLoading,
-    page,
-    setPage,
-    totalPage,
+    setRequest,
     handleTotalPages,
     locationNtime,
+    getData,
   } = useContext(MainContext);
   let [productData, setProductData] = useState([]);
   let [locationAndTime, setLocationAndTime] = useState({
     location: "",
     time: "",
   });
-
-  async function getData(url) {
-    setIsLoading(true);
-    let fetchData = await fetch(url);
-    handleTotalPages(fetchData.headers.get("x-total-count"));
-    let data = await fetchData.json();
-    setProductData(data);
-    setIsLoading(false);
-  }
 
   const getDataLS = () => {
     let locationData = localStorage.getItem("locationLS");
@@ -47,16 +36,17 @@ export default function Products() {
 
   useEffect(() => {
     getDataLS();
-
-    console.log(`https://api-zoom-car-clone.cyclic.app/cards${sort}${filter}`);
-    console.log(locationNtime);
-    getData(
-      `https://api-zoom-car-clone.cyclic.app/cards${sort}${filter}&_page=${page}&_limit=10`
-    );
-  }, [sort, filter, page]);
+    getData(request).then((data) => {
+      setProductData(data);
+    });
+    console.log("product useEffect");
+  }, [request]);
 
   return (
     <section id="productSection" className="bg-light w-100 pt-4">
+      {/* <div className="filterMenu">
+        <FilterMenu />
+      </div> */}
       {isLoading ? (
         <Loading />
       ) : (
@@ -91,7 +81,7 @@ export default function Products() {
                   return <ProductCard key={element.id} productData={element} />;
                 })}
             </div>
-            <Pagination page={page} />
+            <Pagination page={request.page} />
           </div>
         </div>
       )}
