@@ -122,7 +122,7 @@ export default function Slider({ setmenu, menu }) {
                 fontSize: "16px",
               }}
             >
-              Mumbai
+              Chandigarh
             </p>
           </li>
           <li>
