@@ -6,9 +6,10 @@ Hello Readers,<br>
 It was during the final week which is depicted as the construct week. We have done this project with group of 3 members and build the clone of a very popular E-Commerce Car Self Drive Booking Website in the India for “Self Drive For Self Driven”, “Zoom Car” for Learning Purpose<br> This Project is our construct week project in Unit-6 an we give a name to our project called Zoomcar Preoject.<br>
 
  <h3>Links:</h3>
- [Original Website](https://www.zoomcar.com/)<br>
- [Cloned Website](https://zoomcar-clone-4718.vercel.app/)
- <br> I hope you will enjoy the reading….
+
+[Original Website](https://www.zoomcar.com/)<br>
+[Cloned Website](https://zoomcar-clone-4718.vercel.app/)
+<br> I hope you will enjoy the reading….
 
 # <span style="color:red"> About Website: </span>
 
@@ -31,3 +32,7 @@ We are very thankful for the support of my teammates and instructor for the comp
 # <span style="color:red"> Thank Your For Reading </span>
 
 # <span style="color:red"> Team Members: </span>
+
+[Ramanpreet Singh](https://github.com/Ramanpreet4718)<br>
+[Prathmesh Kumbhar](https://github.com/code735)<br>
+[Yash Kumar Pal](https://github.com/Yash0922)
