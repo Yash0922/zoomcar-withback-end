@@ -12,7 +12,7 @@ function OTP({ toggle, setToggle, OTP, userName, phone }) {
   const navigate = useNavigate();
 
   const postUser = async () => {
-    const url = "http://localhost:3001/users/login";
+    const url = "https://relieved-cyan-monkey.cyclic.app/cars/login";
 
     const body = JSON.stringify({
       name: userName,

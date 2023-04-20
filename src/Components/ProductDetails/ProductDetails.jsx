@@ -30,7 +30,7 @@ export default function ProductDetails() {
   }
 
   useEffect(() => {
-    getData(` http://localhost:3001/cars/${id}`);
+    getData(` https://relieved-cyan-monkey.cyclic.app/cars/${id}`);
   }, []);
 
   return (
