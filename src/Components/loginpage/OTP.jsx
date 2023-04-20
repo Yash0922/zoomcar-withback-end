@@ -12,7 +12,7 @@ function OTP({ toggle, setToggle, OTP, userName, phone }) {
   const navigate = useNavigate();
 
   const postUser = async () => {
-    const url = "https://happy-tuna-girdle.cyclic.app/users/login";
+    const url = "http://localhost:3001/users/login";
 
     const body = JSON.stringify({
       name: userName,

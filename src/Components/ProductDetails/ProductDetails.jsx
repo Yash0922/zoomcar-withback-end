@@ -30,7 +30,7 @@ export default function ProductDetails() {
   }
 
   useEffect(() => {
-    getData(`https://happy-tuna-girdle.cyclic.app//cars/${id}`);
+    getData(` http://localhost:3001/cars/${id}`);
   }, []);
 
   return (
