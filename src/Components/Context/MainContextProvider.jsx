@@ -36,7 +36,7 @@ export default function MainContextProvider({ children }) {
         delete urlRequest[element];
       });
 
-      let url = "https://happy-tuna-girdle.cyclic.app/cars?";
+      let url = "http://localhost:3001/cars?";
 
       Object.keys(urlRequest).forEach((element) => {
         if (urlRequest[element] != "") {
